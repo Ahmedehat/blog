@@ -12,14 +12,20 @@ end
 
 def create
 	list = List.new(list_parmas)
-	list.save
-	render json: list
+	if list.save
+		render json: list
+	else
+		render json: list.errors
+	end
 end
 
 def update
 	list = List.find(params[:id])
-	list.update(list_parmas)
-	render json: list_parmas
+	if list.update(list_parmas)
+		render json: list_parmas
+	else
+		render json: list.errors
+	end
 end
 
 def destroy
