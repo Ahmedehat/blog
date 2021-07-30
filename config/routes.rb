@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   			resources :articles 
 
     		resources :lists do
-    			resources :cards
+    			resources :cards do
+    				resources :comments
+    			end
     		end
 
 end
